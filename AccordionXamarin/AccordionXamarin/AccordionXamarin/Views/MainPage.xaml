@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Accordion;assembly=Syncfusion.Expander.XForms"
+             xmlns:local="clr-namespace:AccordionXamarin"
+             x:Class="AccordionXamarin.MainPage" Padding="{OnPlatform iOS='0,40,0,0'}">
+
+    <ContentPage.BindingContext>
+        <local:ItemInfoRepository/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <syncfusion:SfAccordion x:Name="Accordion" ExpandMode="SingleOrNone" Margin="5" BindableLayout.ItemsSource="{Binding Info}" FlowDirection="{OnPlatform Android='RightToLeft', iOS='RightToLeft'}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <syncfusion:AccordionItem x:Name="AccordionItem">
+                        <syncfusion:AccordionItem.Header>
+                            <Grid HeightRequest="50">
+                                <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+                            </Grid>
+                        </syncfusion:AccordionItem.Header>
+                        <syncfusion:AccordionItem.Content>
+                            <Grid Padding="5" BackgroundColor="NavajoWhite">
+                                <Label Text="{Binding Description}" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+                            </Grid>
+                        </syncfusion:AccordionItem.Content>
+                    </syncfusion:AccordionItem>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </syncfusion:SfAccordion>
+    </ContentPage.Content>
+
+</ContentPage>
